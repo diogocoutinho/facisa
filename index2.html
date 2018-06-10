@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/w3c.css">
+    <link rel="stylesheet" href="_css/filtro.css">
+    <link rel="stylesheet" href="_css/bootstrap.min.css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="_js/filter.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="_js/div-dinamic.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Passagem Plantão</title>
+</head>
+<body>
+<!--Menu-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="menu">
+    <h3 id="titulo_pag">Passagem de Plantão</h3>
+    <div class="collapse navbar-collapse w3-bar" id="navbarSite">
+    <!----menu de icones---->
+    <ul class="navbar-nav mr-auto " id="opcoes">
+        <li class="nav-item" id="menu1"><a class="nav-link float-ml-right" href="#">Dashboard</a></li>
+        <li class="nav-item" id="menu2"><a class="nav-link float-ml-right" href="#">Equipe</a></li>
+        <li class="nav-item" id="menu3"><a class="nav-link float-ml-right" href="#">Historico</a></li>
+    </ul>
+    <ul class="navbar-nav" id="tools">
+
+        <!----icone de envelope ---->
+
+        <li class="w3-bar-item">
+            <a class="nav-link dropdown-toggle" href="#" id="envelope" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-envelope"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="envelope">
+                <a class="dropdown-item" href="#">Nova Mensage</a>
+                <a class="dropdown-item" href="#">Ler Mensagem</a>
+                <a class="dropdown-item" href="#">Todas as Mensagens</a>
+            </div>
+        </li>
+
+        <!----icone de usuario ---->
+
+        <li class="w3-bar-item">
+            <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user">
+
+                <a class="dropdown-item" href="#">Log In/Out</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+
+            </div>
+        </li>
+
+        <!----icone de informaçao ---->
+        <li class="w3-bar-item">
+            <a class="nav-link dropdown-toggle" href="#" id="info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-info"></i>
+            </a>
+
+            <!----Links  ---->
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="info">
+                <a class="dropdown-item" href="http://passagemplantao.medicina.ufmg.br" target="_blank"><i class="material-icons">android</i>Principal </a>
+                <a class="dropdown-item" href="http://passagemplantao.medicina.ufmg.br/src/index.html" target="_blank"><i class="material-icons">face</i>Diogo index </a>
+                <a class="dropdown-item" href="http://passagemplantao.medicina.ufmg.br/src/index3.html" target="_blank">Diogo index 3 </a>
+                <a class="dropdown-item" href="http://passagemplantao.medicina.ufmg.br/loginTest.html" target="_blank"><i class="material-icons">face</i>Jeison loginTest</a>
+                <a class="dropdown-item" href="http://passagemplantao.medicina.ufmg.br/pagina.html" target="_blank">Jeison pagina</a>
+                <a class="dropdown-item" href="http://passagemplantao.medicina.ufmg.br/from.html" target="_blank">Jeison from</a>
+                <a class="dropdown-item" href="http://passagemplantao.medicina.ufmg.br/index2.html" target="_blank">Jeison index2</a>
+                <a class="dropdown-item" href="http://passagemplantao.medicina.ufmg.br/_teste/index.html" target="_blank"><i class="material-icons">face</i>Nathan index </a>
+                <a class="dropdown-item" href="http://http://passagemplantao.medicina.ufmg.br/_teste/passagemPiloto.html" target="_blank">passagemPiloto</a>
+                <a class="dropdown-item" href="http://passagemplantao.medicina.ufmg.br/_teste/inserirPaciente.html" target="_blank">inserir paciente</a>
+
+            </div>
+        </li>
+    </ul>
+</div>
+</nav>
+<!--Fim menu-->
+
+
+
+
+
+<!--Inicio Conteiner-->
+<div class="container-fluid conteudo">
+    <div class="row">
+        <div class="col-sm-10 card-group mb-1" id="teste">
+
+                                    <div class="col-sm-3">
+                                        <div class="card text-white bg-primary mb-1">
+                                            <div class="card-header name">Teste de tamanho
+                                                <div class="float-right">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                            </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Primary card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="card text-white bg-secondary mb-1">
+                                            <div class="card-header">Header
+                                                <div class="float-right">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                            </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Secondary card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="card text-white bg-success">
+                                            <div class="card-header">Header
+                                                <div class="float-right">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                            </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Success card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="card text-white bg-danger mb-1">
+                                            <div class="card-header">Header
+                                                <div class="float-right">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                            </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Danger card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="card text-white bg-warning mb-1">
+                                            <div class="card-header">Header
+                                                <div class="float-right">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                            </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Warning card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="card text-white bg-info mb-1">
+                                            <div class="card-header">Header
+                                                <div class="float-right">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                            </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Info card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="card bg-light mb-1">
+                                            <div class="card-header">Header
+                                                <div class="float-right">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                            </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Light card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="card text-white bg-dark mb-1">
+                                            <div class="card-header">Header
+                                                <div class="float-right">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                            </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Dark card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="card text-white bg-danger mb-1">
+                                            <div class="card-header">Header
+                                                <div class="float-right">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Danger card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="card text-white bg-secondary mb-1">
+                                            <div class="card-header">Header
+                                                <div class="float-right">
+                                                    <i class="material-icons">warning</i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Secondary card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                        <i class="material-icons md-48 md-light" id="criarLinha" data-toggle="modal" data-target="#exampleModalCenter">person_add</i>
+
+
+                    </div>
+                            <div class="col-md-2 l2 m1 s1 w3-dark-grey w3-center float-right" id="lateral">
+                                <br>
+                                <p>LEgenda com texto teste.</p>
+                            </div>
+
+    </div>
+</div>
+<!--Fim corpo-->
+
+
+
+
+<!--Inicio Footer-->
+<footer class="footer text-muted" id="rodape">Hospital das Clínicas - Todos os direitos reservados &reg; - SPP Versão 0.1</footer>
+<!--Fim Footer-->
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Cadastrar um médico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="width: 216px;">
+                <form method="post" action="testebanco.php">
+                    <span>ID MEDICO</span>
+                    <input type="text" name="id">
+                    <span>Nome Medico</span>
+                    <input type="text" name="nome">
+                    <span> Crm</span>
+                    <input type="text" name="crm">
+                    <span> Especialidade</span>
+                    <input type="text" name="espec">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" value="enviar" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Passagem Plantão</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="_css/login.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="_css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/w3c.css">
+    <link rel="stylesheet" href="_css/bootstrap.css">
+    <script type="text/javascript" src="_js/alterar_button.js"></script>
+    <link rel="stylesheet" href="_css/filtro.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="_js/view_pas.js"></script>
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form method="post" action="login.php" class="login100-form validate-form">
+					<span class="login100-form-title p-b-26">
+						Bem vindo!
+					</span>
+					<!--<span class="login100-form-title p-b-48">
+						<i class="zmdi zmdi-font"></i>
+					</span>-->
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="text" name="id">
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<span id="spnMostrarSenha" class="glyphicon glyphicon glyphicon-eye-open form-control-feedback"></span>
+						</span>
+						<input class="input100" type="password" id="txtSenha" name="senha">
+						<span class="focus-input100" data-placeholder="Senha"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button type="submit" value="enviar" class="login100-form-btn">
+								Entre
+							</button>
+						</div>
+					</div>
+                    <div class="text-center p-t-115" style="display: none;">
+						<span class="txt1">
+							Esqueceu a senha?
+						</span>
+
+                        <a class="txt2" href="#">
+                            Entre
+                        </a>
+                    </div>
+                    <div class="text-center p-t-115">
+						<span class="txt1">
+							Cadastre-se
+						</span>
+
+                        <a class="txt2"  data-toggle="modal" href="#exampleModalCenter">
+                            AQUI
+                        </a>
+                    </div>
+				</form>
+				<div class="modal fade in" id="exampleModalCenter" tabindex="-1" role="dialog"
+					 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-titl" id="exampleModalCenterTitle">Cadastrar novo usário</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+
+                                <form class="w3-center" name="form1" method="post" action="">
+                                    <fieldset>
+                                        <h4>Selecione o tipo de usuario: </h4>
+                                        <input name="periodo" id="medico" type="radio"
+                                               value="sim"
+                                               onClick="HabCampos()"/><label for="medico"> &nbsp;Médico
+                                    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input name="periodo" id="enfermeiro" type="radio"
+                                               value="nao"
+                                               onClick="HabCampos()"/><label for="enfermeiro"> &nbsp;Enfermeiro</label>
+                                    </fieldset>
+                                </form>
+								<form class="w3-center" id="form_medico" method="post" action="formsDB/cadastro.php" style="display: none;">
+                                    <fieldset class="custom-control custom-radio custom-control-inline col-auto">
+                                        <input class="form-control" type="text" placeholder="Nome" name="nome"/><br>
+                                        <input class="form-control" type="password" placeholder="Senha" name="senha"/><br>
+                                        <input class="form-control" type="password" placeholder="Repita sua Senha" name="repetesenha"/><br>
+                                        <input class="form-control" type="email" placeholder="Email" name="email"/><br>
+                                        <input class="form-control" type="text" placeholder="Especialidade" name="espec"><br>
+                                        <input class="form-control" type="text" placeholder="CRM" name="crm"><br>
+
+                                        <!--  <div class="g-recaptcha" data-sitekey="6LdyXlgUAAAAAGfE3PmI7nrKeKci6oLQsXbB-Y30"></div> -->
+                                        <div class="modal-footer">
+                                            <button type="button" onClick="desabilita_a()" class="btn btn-secondary"
+                                                    data-dismiss="modal">
+                                                Close</button>
+                                            <button type="submit" value="cadastrar" class="btn btn-primary">Cadastrar
+                                            </button>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <form class="w3-center" id="form_enfermeiro" method="post" action="formsDB/CadastroEnfermeiro.php"  style="display:
+                                none;">
+									<fieldset class="custom-control custom-radio custom-control-inline col-auto">
+										<input class="form-control" type="text" placeholder="Nome" name="nome"/><br>
+										<input class="form-control" type="password" placeholder="Senha" name="senha"/><br>
+										<input class="form-control" type="password" placeholder="Repita sua Senha" name="repetesenha"/><br>
+										<input class="form-control" type="email" placeholder="Email" name="email"/><br>
+										<input class="form-control" type="text" placeholder="COREN" name="coren"><br>
+
+										<!--<div class="g-recaptcha" data-sitekey="6LdyXlgUAAAAAGfE3PmI7nrKeKci6oLQsXbB-Y30"></div>-->
+										<div class="modal-footer">
+											<button type="button" onclick="desabilita_a()" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+											<button type="submit" value="cadastrar" class="btn btn-primary">Cadastrar
+											</button>
+										</div>
+									</fieldset>
+                                </form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+
+    <script>
+        var $spnMostrarSenha = $('#spnMostrarSenha');
+        var $txtSenha = $('#txtSenha');
+
+        $spnMostrarSenha
+            .on('mousedown mouseup', function() {
+                var inputType = $txtSenha.attr('type') == 'password' ? 'text' : 'password';
+                $txtSenha.attr('type', inputType);
+            })
+            .on('mouseout', function() {
+                $txtSenha.attr('type', 'password');
+            });
+    </script>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=pt-BR'></script>
+
+</body>
+</html>

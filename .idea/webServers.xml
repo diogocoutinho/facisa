@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="cc728779-7130-4071-b9fd-80155fdae5f4" name="passagemplantao" url="http://passagemplantao.medicina.ufmg.br">
+        <fileTransfer host="passagemplantao.medicina.ufmg.br" port="22" rootFolder="/www/passagemplantao/src" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+body{
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.8) 70%,rgba(255,255,255,0.8) 70%), url("../_img/papelParede.jpg");
+}

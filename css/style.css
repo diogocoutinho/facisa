@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+body{
+    background-color: slategrey;
+}
+
+div.tamanho div{
+margin-bottom: -20px;
+width: 100%;
+
+}
+iframe#framespec{
+
+
+    margin-left: 30px;
+    width: 300px;
+    border-bottom-color: #cccccc;
+
+}
+
+
+.glyphicon-eye-open {
+    pointer-events: auto;
+}
+.glyphicon-eye-open:hover {
+    cursor: pointer;
+}
+
+/* body{
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.8) 100%,rgba(255,255,255,0.8) 100%), url("../_img/papel.jpg");
+} */
+
+section#principal{
+    display: block;
+    float: left;
+    width: 1050px;
+    margin-right: -50px;
+    margin-top: 0px;
+}
+
+/*aside#lateral{
+    display: block;
+    float: right;
+    width: 100px;
+    margin-right: -10px;
+}*/
+
+div.container-fluid{
+    margin-top: -1px;
+    float: right;
+}
+div.container{
+    display: block;
+    border: black;
+    background-color: white;
+    color: #000000;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    margin-right: -20px;
+    margin-top: -10px;
+    width: 250px;
+    height: 725px;
+}
+
+div#legenda h4{
+    padding: 10px;
+    text-align: center;
+}
+
+div#legenda img{
+    width: 20%;
+    margin-left: 20px;
+}
+
+div#cards{
+    margin-bottom: 30px;
+}
+
+nav#menu{
+    background-color: white;
+    color: #000000;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+}
+
+li.nav-item:hover{
+    background-color: lightslategray;
+    color: white;
+}
+
+button#buttonI{
+    margin-top: -25px;
+}
+p#iButton{
+    margin: -9px;
+}
+
+h3#titulo_pag{
+    font-family: 'Pacifico', cursive;
+    width: 290px;
+}
+
+div.col-sm-3{
+    margin-right: -7px;
+    margin-left: -10px;
+}
+
+div.card-body img{
+    display: compact;
+    width: 10%;
+}
+
+div.card{
+    width: 100%;
+    height: 11rem;
+    margin-top: 10px;
+}
+footer#rodape {
+    display: block;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: #000000;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    text-align: center;
+    margin-top: 30px;
+}
+
+

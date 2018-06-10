@@ -1,0 +1,1488 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Sistema de Passagem Plantão</title>
+    <meta name="generator" content="Bootply">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/w3c.css">
+    <link rel="stylesheet" href="_css/bootstrap.css">
+    <link href="_css/bootstrap3.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="_css/filtro.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="_js/div-dynamic.js"></script>-->
+    <script type="text/javascript" src="_js/filter.js"></script>
+    <script type="text/javascript" src="_js/alterar_button.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- HTML code from Bootply.com editor -->
+</head>
+<body>
+<!--Menu-->
+<nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top" id="menu">
+    <h3 class="texto">Passagem de Plantão</h3>
+    <button class="navbar-toggler" type="button"  data-toggle="collapse" data-target="#navbarSite">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse w3-bar" id="navbarSite">
+
+        <!----menu de icones---->
+        <ul class="navbar-nav mt-4 ml-0 float-left" id="opcoes">
+
+            <div class="pull-right mt-0 mb-1">
+                <button class="btn btn-small btn-primary" data-toggle="portfilter" data-target="all">
+                    Todos
+                </button>
+                <button class="btn btn-small btn-primary" data-toggle="portfilter" data-target="grave">
+                    Grave
+                </button>
+                <button class="btn btn-small btn-primary" data-toggle="portfilter" data-target="medio">
+                    Médio
+                </button>
+                <button class="btn btn-small btn-primary" data-toggle="portfilter" data-target="baixo">
+                    Baixo
+                </button>
+
+            </div>
+            <div class="clearfix"></div>
+        </ul>
+        <div class="dropdown">
+            <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                Dropdown
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+            </ul>
+        </div>
+        <ul class="navbar-nav float-right" id="tools">
+            <!----icone de usuario ---->
+
+            <li class="w3-bar-item">
+                <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                    <i class="fa fa-user"> Usuário </i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user">
+
+                    <a class="dropdown-item" href="exit.php">Log In/Out</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Perfil</a>
+                    <a class="dropdown-item" href="#">Configurações</a>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--Fim menu-->
+
+<div class="container-fluid wrapper">
+
+    <div class="row">
+
+        <div class="col-sm-10 mt-2 mb-5" id="teste">
+
+                    <div class="cards">
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="grave">
+                            <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                               href="#modalView">
+                            <div class="card text-white bg-light border-danger" style="border-radius: 10px;">
+                                <div class="card-header bg-danger text-dark header" id="cabeca">
+                                    <i class="material-icons md-18">person </i>
+                                    {nome_paciente0} {id_paciente0}
+                                </div>
+                                <div class="card-body text-dark" style="margin-right: -25px;">
+                                    <div class="container-fluid">
+                                        <div class="row mb-0">
+                                            <div class="col-xl-12 mb-0" id="icons0" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                                <i class="material-icons" style="margin-left: -10px;">event
+                                                </i>
+                                                {data_internacao0}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <span class="text-uppercase font-weight-bold"
+                                                      style="margin-left: -15px;">ig</span> {tempo_gravidez0} sem
+                                                <br>
+                                                <div class="border col-sm-7"
+                                                     style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO0}</span> </div>
+                                                <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                                    <span class="text-uppercase font-weight-bold">rg{RISCO0}</span>
+                                                    <span class="text-uppercase font-weight-bold">cr{CLASSROB0}</span>
+                                                </div><br><br>
+                                                <div class="border col-sm-7 float-left"
+                                                     style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP0}</span>
+                                                </div>
+                                                <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                       tr {TR0}{TT0}
+                                                    <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO0}</span>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="grave">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-danger" style="border-radius: 10px;">
+                            <div class="card-header bg-danger text-dark header" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente1} {id_paciente1}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons1" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez1}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO1}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                      <span class="text-uppercase font-weight-bold">rg{RISCO1}</span>
+                                        <span class="text-uppercase font-weight-bold">cr{CLASSROB1}</span>
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP1}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr {TR1}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO1}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="grave">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-danger" style="border-radius: 10px;">
+                            <div class="card-header bg-danger text-dark header" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente2} {id_paciente2}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons2" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao2}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez2}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO2}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO2} </span>
+                                      <span class="text-uppercase font-weight-bold"> cr{CLASSROB2}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP2}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR2}</span>
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO2}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="grave">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-danger" style="border-radius: 10px;">
+                            <div class="card-header bg-danger text-dark header" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente3} {id_paciente3}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons3" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao3}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez3}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO3}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO3}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB3}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP3}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR3}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO3}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="grave">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-danger" style="border-radius: 10px;">
+                            <div class="card-header bg-danger text-dark header" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente4} {id_paciente4}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons4" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao4}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez4}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO4}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO4}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB4}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP4}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR4}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO4}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="grave">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-danger" style="border-radius: 10px;">
+                            <div class="card-header bg-danger text-dark header" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente5} {id_paciente5}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons5" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao5}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez5}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO5}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO5}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB5}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP5}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR5}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO5}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="medio">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-warning" style="border-radius: 10px;">
+                            <div class="card-header bg-warning text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente6} {id_paciente6}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons6" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao6}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez6}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO6}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO6}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB6}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP6}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR6}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO6}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="medio">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-warning" style="border-radius: 10px;">
+                            <div class="card-header bg-warning text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente7} {id_paciente7}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons7" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao7}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez7}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO7}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO7}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB7}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP7}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR7}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO7}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="medio">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-warning" style="border-radius: 10px;">
+                            <div class="card-header bg-warning text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente8} {id_paciente8}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons8" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao8}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez8}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO8}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO8}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB8}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP8}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR8}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO8}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="medio">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-warning" style="border-radius: 10px;">
+                            <div class="card-header bg-warning text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente9} {id_paciente9}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons9" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao9}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez9}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO9}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO9}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB9}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP9}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR9}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO9}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="medio">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-warning" style="border-radius: 10px;">
+                            <div class="card-header bg-warning text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente10} {id_paciente10}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons10" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao10}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez10}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO10}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO10}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB10}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP10}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                       tr{TR10}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO10}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="medio">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-warning" style="border-radius: 10px;">
+                            <div class="card-header bg-warning text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente11} {id_paciente11}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons11" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao11}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez11}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO11}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO11}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB11}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP11}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR11}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO11}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="medio">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-warning" style="border-radius: 10px;">
+                            <div class="card-header bg-warning text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente12} {id_paciente12}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons12" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao12}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez12}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO12}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO12}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB12}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP12}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR12}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO12}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="medio">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-warning" style="border-radius: 10px;">
+                            <div class="card-header bg-warning text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente13} {id_paciente13}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons13" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao13}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez13}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO13}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO13}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB13}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP13}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                       tr{TR13}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO13}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="baixo">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-success" style="border-radius: 10px;">
+                            <div class="card-header bg-success text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente14} {id_paciente14}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons14" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao14}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez14}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO14}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO14}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB14}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP14}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                       tr{TR14}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO14}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="baixo">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-success" style="border-radius: 10px;">
+                            <div class="card-header bg-success text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente15} {id_paciente15}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons15" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao15}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez15}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO15}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO15}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB15}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP15}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR15}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO15}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="baixo">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-success" style="border-radius: 10px;">
+                            <div class="card-header bg-success text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente16} {id_paciente16}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons16" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao16}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez16}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO16}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO16}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB16}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP16}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR16}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO16}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="baixo">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-success" style="border-radius: 10px;">
+                            <div class="card-header bg-success text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente17} {id_paciente17}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons17" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao17}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez17}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO17}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO17}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB17}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP17}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR17}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO17}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="baixo">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-success" style="border-radius: 10px;">
+                            <div class="card-header bg-success text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente18} {id_paciente18}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons18" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao18}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez18}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO18}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO18}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB18}</span>
+
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP18}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR18}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO18}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                        <div class="col-sm-3 mt-1 mb-1" data-tag="baixo">
+                        <a style="text-decoration: none;" data-target="#modalView" data-toggle="modal"
+                           href="#modalView">
+                          <div class="card text-white bg-light border-success" style="border-radius: 10px;">
+                            <div class="card-header bg-success text-dark" id="cabeca">
+                              <i class="material-icons md-18">person </i>
+                              {nome_paciente19} {id_paciente19}
+                            </div>
+                            <div class="card-body text-dark" style="margin-right: -30px;">
+                              <div class="container-fluid">
+                                <div class="row mb-0">
+                                  <div class="col-xl-12 mb-0" id="icons19" style="margin-top: -78px;
+                                            margin-left: -10px; margin-right: -40px;">
+                                    <i class="material-icons" style="margin-left: -10px;">event</i>
+                                    {data_internacao19}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span class="text-uppercase font-weight-bold"
+                                            style="margin-left: -15px;">ig</span> {tempo_gravidez19}
+                                    sem<br>
+                                    <div class="border col-sm-7"
+                                         style="margin-left: -15px;margin-right: -80px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;">
+                                                    ti {TIPOPARTO19}</span> </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -25px;">
+                                        <span class="text-uppercase font-weight-bold">rg{RISCO19}</span>
+                                      <span class="text-uppercase font-weight-bold">cr{CLASSROB19}</span>
+                                    </div><br><br>
+                                    <div class="border col-sm-7 float-left"
+                                         style="margin-left: -15px;width: 112px;">
+                                                <span class="text-uppercase font-weight-bold float-left"
+                                                      style="margin-left: -15px;margin-right: -10px;">
+                                                    tp &nbsp;&nbsp;&nbsp;{TP19}</span>
+                                    </div>
+                                    <div class="col-sm-8 float-right" style="margin-right: -50px;">
+                                                    <span class=" text-uppercase font-weight-bold float-left"
+                                                          style="margin-left: -30px;">
+                                                        tr{TR19}
+                                      <span class="font-weight-bold">
+                                                    Ad{NOTIFICACAO19}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                    </div>
+
+                <div class="push"></div>
+            <a class="material-icons md-48 md-light add600" id="criarLinha" data-toggle="modal"
+               data-target="#modalIncluir">
+                add_circle</a>
+        </div>
+            <div class="col-md-2 l2 m1 s1 w3-WhiteSmoke w3-center ml-5 mt-1 mb-5 float-right" id="lateral"
+                 style="position: static;">
+                <h3 class="texto">Legenda</h3><br>
+                <div class="border"
+                     style="margin-left: -0px;margin-right: -80px;width: 250px;">
+                <h5 class="texto">&nbsp;&nbsp;&nbsp;Tipo Internação</h5>
+                   <i class="material-icons md-light float-left" >record_voice_over</i>Anteparto<br>
+                <i class="material-icons md-light float-left" style="margin-left: -30px">pregnant_woman</i>Parto<br>
+                <i class="material-icons md-light float-left" style="margin-left: -20px">child_friendly</i>Pós-Parto<br>
+                </div>
+                <div class="border"
+                     style="margin-left: -0px;margin-right: -80px;width: 250px;">
+                    <h5 class="texto">&nbsp;&nbsp;&nbsp;Risco Gestacional</h5>
+                    <i class="material-icons md-light float-left">arrow_downward</i>Habitual<br>
+                    <i class="material-icons md-light float-left" style="margin-left: -24px">arrow_upward</i>Alto Risco<br>
+                </div>
+                <div class="border"
+                     style="margin-left: -0px;margin-right: -80px;width: 250px;">
+                    <h5 class="texto">&nbsp;&nbsp;&nbsp;Tipo de Parto</h5>
+                    <i class="material-icons md-light float-left" >toll</i>Espontâneo<br>
+                    <i class="material-icons md-light float-left" style="margin-left: -22px">slow_motion_video</i>Induzido<br>
+                    <i class="material-icons md-light float-left" style="margin-left: -23px">radio_button_unchecked</i>Sem TP
+                </div>
+                <div class="border"
+                     style="margin-left: -0px;margin-right: -80px;width: 250px;">
+                    <h5 class="texto">&nbsp;&nbsp;&nbsp;Classificação de Robson</h5>
+                    <span class="badge badge-pill bg-success">1</span>
+                    <span class="badge badge-pill bg-success">2</span>
+                    <span class="badge badge-pill bg-success">3</span>
+                    <span class="badge badge-pill bg-success">4</span>
+                    <span class="badge badge-pill bg-warning">5</span><br>
+                    <span class="badge badge-pill bg-warning">6</span>
+                    <span class="badge badge-pill bg-warning">7</span>
+                    <span class="badge badge-pill bg-danger">8</span>
+                    <span class="badge badge-pill bg-danger">9</span>
+                    <span class="badge badge-pill bg-danger">10</span>
+                </div>
+                <div class="border"
+                     style="margin-left: -0px;margin-right: -80px;width: 250px;">
+                    <h5 class="texto">&nbsp;&nbsp;&nbsp;Evento Adverso</h5>
+                    <i class="material-icons md-light float-left">add_alert</i>Exite<br>
+                    <i class="material-icons md-light float-left" style="margin-left: -24px">notifications_none</i>Não Existe
+                </div>
+                <div class="border"
+                     style="margin-left: -0px;margin-right: -80px;width: 250px;">
+                    <h5 class="texto">&nbsp;&nbsp;&nbsp;Transfusão</h5>
+                    <i class="material-icons md-light float-left">favorite</i>Sim<br>
+                    <i class="material-icons md-light float-left" style="margin-left: -24px">favorite_border</i>Não
+                </div>
+                <div class="border"
+                     style="margin-left: -0px;margin-right: -80px;width: 250px;">
+                    <h5 class="texto">&nbsp;&nbsp;&nbsp;Adicionar Paciente</h5>
+                    <i class="material-icons md-48 md-light add600">add_circle</i>
+                </div>
+                <a class="material-icons md-48 md-light add600" id="criarLinha" data-toggle="modal"
+                   data-target="#modalIncluir">
+                    add_circle</a>
+            </div>
+
+
+<!--Inicio Footer-->
+<footer class="footer text-muted" id="rodape">Hospital das Clínicas - Todos os direitos reservados &reg; - SPP Versão 0.1</footer>
+<!--Fim Footer-->
+
+<!-- Inicio Modal Incluir paciente -->
+<div class="modal fade" id="modalIncluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content mb-0">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalCenterTitle">Cadastrar um paciente</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mb-0">
+                <form onchange="this.form.submit();" name="dadosPaciente0"
+                      action="formsDB/cadastropaciente.php"
+                       method="post">
+                    Numero do Paciente :<br>
+                    <input class="form-control" type="number" name="numero_paciente" value="" />
+                    <br>Nome do paciente:<br>
+                        <input class="form-control" type="text" name="nome_paciente" value="" />
+                    <br>Data de Internação :<br>
+                        <input class="form-control" type="date" name="dtInter_paciente" value="" />
+                    <br>Tempo de gravidez: <br>
+                        <input class="form-control" type="number" name="dtParto_paciente"
+                               placeholder="Nº de semanas"/>
+                    <br>Classificação de Robson: <br>
+                    <select class="form-control mr-sm-1" name="clasRob">
+                        <option value="">{CLASSROB}</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <br>Tipo Internação : (Anteparto, Parto, Pós-parto)<br>
+                        <select class="form-control" name="TipoInter">
+                            <option value=""></option>
+                            <option value="Anteparto">Anteparto</option>
+                            <option value="Parto">Parto</option>
+                            <option value="pos">Pós-Parto</option>
+                        </select>
+                    <br>Admissão obstétrica (TP espontâneo, TP induzido, Sem TP)<br>
+                        <select class="form-control" name="adimis">
+                            <option value=""></option>
+                            <option value="Espontâneo">Espontâneo</option>
+                            <option value="Induzido">Induzido</option>
+                            <option value="Sem TP">Sem Tp</option>
+                        </select>
+                    <br>Risco Gestacional (risco habitual e alto risco)<br>
+                        <select class="form-control" name="risco">
+                            <option value=""></option>
+                            <option value="Habitual">Habitual</option>
+                            <option value="Alto Risco">Alto Risco</option>
+                        </select>
+                    <br>Transfusão (sim ou não)<br>
+                    <label for="sim">Sim</label>
+                    <input type="radio" name="tranfu" id="simView" value="Sim" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="não">Não</label>
+                    <input type="radio" name="tranfu" id="nãoView" value="Não" />
+                    <br>Evento adverso (se teve - detalhar)<br>
+                    <font size="1" face="arial, helvetica, sans-serif"> ( Limite de 1000 caracteres. )<br>
+                            <textarea class="form-control" wrap="physical" name="message" rows="5" cols="30"
+                                  onKeyDown="textCounter(this.form.message,this.form.remLen,1000);"
+                                  onKeyUp="textCounter(this.form.message,this.form.remLen,1000);">
+                            </textarea>
+                        faltam&nbsp;
+                            <input readonly type=text name=remLen size=1 maxlength=1 value="1000"
+                                               style="border: none;width: 30px;">
+                        <br></font><br>
+                    <div class="modal-footer mb-0">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" value="enviar" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fim Modal Incluir paciente -->
+
+<!-- Inicio Modal view/update paciente -->
+<div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content mb-0">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalViewTitle">Visualisar paciente </h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mb-0">
+              <form id="dadosPaciente" onchange="this.form.submit();" name="dadosPaciente" method="post">
+                    <fieldset id="camada" disabled>
+                        Numero do Paciente :<br>
+                        <input class="form-control" type="number" name="numero_paciente" value="{id_paciente0}" readonly/>
+                        <br>Nome do paciente:<br>
+                        <input class="form-control" type="text" name="nome_paciente" value="{nome_paciente0}" readonly/>
+                        <br>Data de Internação :<br>
+                        <input class="form-control" type="date" name="dtInter_paciente" value="{data_internacao0}"/>
+                        <br>Tempo de gravidez: <br>
+                        <input class="form-control" type="number" name="dtParto_paciente"
+                              placeholder="{tempo_gravidez0} semanas"/>
+                        <br>Classificação de Robson: <br>
+                        <select class="custom-select mr-sm-1" name="clasRob">
+                            <option value="">{CLASSROB0}</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select><br>
+                        <br>Tipo Internação : (Anteparto, Parto, Pós-parto)<br>
+                        <select class="custom-select mr-sm-1" name="TipoInter">
+                            <option value="">{TIPOPARTOMODAL0}</option>
+                            <option value="Anteparto">Anteparto</option>
+                            <option value="Parto">Parto</option>
+                            <option value="pos">Pós-Parto</option>
+                        </select>
+                        <br><br>Admissão obstétrica (TP espontâneo, TP induzido, Sem TP)<br>
+                        <select class="custom-select mr-sm-1" name="adimis">
+                            <option value="{TP0}"></option>
+                            <option value="Espontâneo">Espontâneo</option>
+                            <option value="Induzido">Induzido</option>
+                            <option value="Sem TP">Sem Tp</option>
+                        </select>
+                        <br><br>Risco Gestacional (risco habitual e alto risco)<br>
+                        <select class="custom-select mr-sm-1" name="risco">
+                            <option value=""></option>
+                            <option value="Habitual">Habitual</option>
+                            <option value="Alto Risco">Alto Risco</option>
+                        </select>
+                        <br><br>Transfusão (sim ou não)<br>
+                        <label for="sim">Sim</label>
+                        <input type="radio" name="tranfu" id="sim" value="Sim" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="não">Não</label>
+                        <input type="radio" name="tranfu" id="não" value="Não" />
+                        <br><br>Evento adverso (se teve ou não - detalhar)<br>
+                        <font size="1" face="arial, helvetica, sans-serif"> ( Limite de 1000 caracteres. )<br>
+                            <textarea class="form-control" wrap="physical" name="message" rows="5" cols="30"
+                                      onKeyDown="textCounter(this.form.message,this.form.remLen,1000);"
+                                      onKeyUp="textCounter(this.form.message,this.form.remLen,1000);"></textarea>
+                            faltam&nbsp;<input readonly type=text name=remLen size=1 maxlength=1 value="1000"
+                                               style="border: none;width: 30px;"><br></font><br>
+                    </fieldset>
+                        <div class="modal-footer mb-0">
+                          <button type="button" value="alta" id="alta" class="float-left btn btn-success">Alta
+                          </button>
+                            <button onclick="disableField()" type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">Fechar
+                            </button>
+                            <button onclick="undisableFieldset();" value="up" type="button" class="btn btn-primary"
+                                    id="alterar">Alterar</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fim Modal view/update paciente -->
+
+<!-- Inicio Modal2 view/update paciente -->
+<div class="modal fade" id="modalView2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content mb-0">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalViewTitle2">Visualisar paciente</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mb-0">
+                <form onchange="this.form.submit();" name="dadosPaciente2"
+                      action="formsDB/Update.php"
+                      method="post">
+                    <fieldset id="camada2" disabled>
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                Numero do Paciente :
+                                <input class="form-control" type="number" name="numero_paciente" value="{id_paciente2}"
+                                       readonly/>
+                            </div>
+                            <div class="col-auto">
+                                Nome do paciente:
+                                <input class="form-control" type="text" name="nome_paciente" value="{nome_paciente2}" readonly/>
+                            </div>
+                            <div class="col-auto">
+                                    Data de Internação :
+                                <input class="form-control" type="date" name="dtInter_paciente" value="{data_internacao2}"/>
+                            </div>
+                            <div class="col-auto">
+                                Tempo de gravidez:
+                                <input class="form-control" type="number" name="dtParto_paciente"
+                                       placeholder="{tempo_gravidez2} semanas"/>
+                            </div>
+                            <div class="col-auto">
+                                Classificação de Robson:
+                                <select class="custom-select mr-sm-1" name="clasRob">
+                                    <option value="">{CLASSROB2}</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                Tipo Internação : (Anteparto, Parto, Pós-parto)<br>
+                                <select class="custom-select mr-sm-1" name="TipoInter">
+                                    <option value="{TIPOPARTOMODAL2}"></option>
+                                    <option value="Anteparto">Anteparto</option>
+                                    <option value="Parto">Parto</option>
+                                    <option value="pos">Pós-Parto</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                Admissão obstétrica (TP espontâneo, TP induzido, Sem TP)<br>
+                                <select class="custom-select mr-sm-1" name="adimis">
+                                    <option value=""></option>
+                                    <option value="Espontâneo">Espontâneo</option>
+                                    <option value="Induzido">Induzido</option>
+                                    <option value="Sem TP">Sem Tp</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                Risco Gestacional (risco habitual e alto risco)<br>
+                                <select class="custom-select mr-sm-1" name="risco">
+                                    <option value=""></option>
+                                    <option value="Habitual">Habitual</option>
+                                    <option value="Alto Risco">Alto Risco</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                Transfusão (sim ou não)
+                                <label for="sim">Sim</label>
+                                <input type="radio" name="tranfu" id="sim2" value="Sim" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label for="não">Não</label>
+                                <input type="radio" name="tranfu" id="não2" value="Não" />
+                            </div>
+                            <div class="col-auto">
+                                Evento adverso (se teve ou não - detalhar)
+                                <font size="1" face="arial, helvetica, sans-serif"> ( Limite de 1000 caracteres. )<br>
+                                    <textarea class="form-control" wrap="physical" name="message" rows="5" cols="30" onKeyDown="textCounter(this.form.message,this.form.remLen,1000);" onKeyUp="textCounter(this.form.message,this.form.remLen,1000);"></textarea>
+                                    faltam&nbsp;<input readonly type=text name=remLen size=1 maxlength=1 value="1000"
+                                                       style="border: none;width: 30px;"><br></font><br>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="modal-footer mb-0">
+
+                        <button onclick="disableField2()" type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Fechar
+                        </button>
+                        <button onclick="undisableFieldset2()" type="button" class="btn btn-primary"
+                                id="alterar2">Alterar</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fim Modal2 view/update paciente -->
+
+
+
+<script LANGUAGE="JavaScript">
+
+    function textCounter(field, countfield, maxlimit) {
+        if (field.value.length > maxlimit)
+            field.value = field.value.substring(0, maxlimit);
+        else
+            countfield.value = maxlimit - field.value.length;
+    }
+
+
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
