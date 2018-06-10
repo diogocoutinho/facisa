@@ -20,6 +20,9 @@ function insertPaciente() {
     $trasn=$_POST['tranfu'];
     $evento=$_POST['message'];
     $rob=$_POST['clasRob'];
+    $cor=$_POST['cor'];
+
+
 
 
 
@@ -32,14 +35,14 @@ function insertPaciente() {
 
 
         $sql = "INSERT INTO teste_paciente VALUES('$numero' , '$nome' , '$dtintera'
- ,'$tipointerna','$admobstetrica','$risco','$trasn','$evento','$dtparto','$rob')";
+ ,'$tipointerna','$admobstetrica','$risco','$trasn','$evento','$dtparto','$rob',$cor)";
         try {
             $DB->executarSQL($sql);
-            echo '<script>alert("Cadastro Realizado com sucesso!") </script>>';
+            echo '<script>alert("Cadastro Realizado com sucesso!") </script>';
             echo "<meta http-equiv=\"refresh\" content=1;url=\src/index.php>";
 
         }catch (Exception $ex){
-            echo '<script>alert("Falha ao Cadastrar, verifique os dados!") </script>>';
+            echo '<script>alert("Falha ao Cadastrar, verifique os dados!") </script>';
             echo "<meta http-equiv=\"refresh\" content=1;url=\src/index.php>";
         }
 
